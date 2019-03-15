@@ -15,8 +15,8 @@
     "co-mocha": "1.1.2",
     "mocha": "2.5.3",
     "sinon": "1.17.4",
-    "sinon-chai": "2.8.0"
-    "instanbul": "0.4.5"
+    "sinon-chai": "2.8.0",
+    "istanbul": "0.4.5"
   },
   "dependencies": {
     "request": "2.72.0"

@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test-unit",
-    "test-unit": "NODE_ENV=test mocha --require co-mocha 'lib/*.spec.js'"
-    istanbul cover _mocha $(find ./lib -name \"*.spec.js\" -not -path \"./node_modules/*\")
+    "test-unit": "istanbul cover _mocha $(find ./lib -name \"*.spec.js\" -not -path \"./node_modules/*\")"
   },
   "keywords": [],
   "author": "",

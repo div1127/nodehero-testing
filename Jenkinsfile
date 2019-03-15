@@ -1,5 +1,5 @@
 pipeline {
-    agent {label "ecs-slave"}
+    agent {label "ecs-slaves"}
 
     stages {
         stage('Build') {

@@ -1,10 +1,14 @@
 pipeline {
     agent {label "ecs-slaves"}
 
+    def imagetag="nodejs-app-${BUILD_NUMBER}"
+    def taskDefile="file://aws/task-definition-${imagetag}.json"
+
     stages {
         stage('Build') {
             steps {
                 echo "Building..."
+
                 sh "npm install"
             }
         }
@@ -14,14 +18,13 @@ pipeline {
                 sh 'npm run test'
             }
         }
-        stage('Deploy') {
+        stage('Docker Build & Push') {
             steps {
-                echo 'docker info'
-                sh "apt-get update && apt-get install libltdl-dev -y"
-                sh "docker -v"
-                sh "aws --version"
-                sh "ecs-cli --version"
-                
+                echo "Building docker Image for BUILD: ${BUILD_NUMBER}"
+                echo "${imagetag}"
+                echo "${taskDefile}"
+                sh ./build_docker_image
+
             }
         }
     }

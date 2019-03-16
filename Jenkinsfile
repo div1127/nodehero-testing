@@ -1,6 +1,7 @@
+#!/bin/groovy
 pipeline {
     agent {label "ecs-slaves"}
-    def imagetag="repo-${BUILD_NUMBER}"
+    def imagetag="repo"
     
 
     stages {

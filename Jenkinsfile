@@ -1,8 +1,9 @@
 #!/bin/groovy
 pipeline {
     agent {label "ecs-slaves"}
-    def imagetag="repo"
-    
+    environment {
+        def imagetag="repo"
+    }
 
     stages {
         stage('Build') {

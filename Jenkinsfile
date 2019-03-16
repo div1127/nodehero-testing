@@ -1,8 +1,7 @@
 pipeline {
     agent {label "ecs-slaves"}
 
-    def imagetag="nodejs-app-${BUILD_NUMBER}"
-    def taskDefile="file://aws/task-definition-${imagetag}.json"
+    
 
     stages {
         stage('Build') {
@@ -20,6 +19,8 @@ pipeline {
         }
         stage('Docker Build & Push') {
             steps {
+                def imagetag="nodejs-app-${BUILD_NUMBER}"
+                def taskDefile="file://aws/task-definition-${imagetag}.json"
                 echo "Building docker Image for BUILD: ${BUILD_NUMBER}"
                 echo "${imagetag}"
                 echo "${taskDefile}"

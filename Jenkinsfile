@@ -19,6 +19,8 @@ pipeline {
                 echo 'docker info'
                 sh "apt-get update && apt-get install libltdl-dev -y"
                 sh "docker -v"
+                sh "aws --version"
+                sh "ecs-cli --version"
                 
             }
         }

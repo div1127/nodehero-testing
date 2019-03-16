@@ -20,11 +20,11 @@ pipeline {
         stage('Docker Build & Push') {
             steps {
                 def imagetag="nodejs-app-${BUILD_NUMBER}"
-                def taskDefile="file://aws/task-definition-${imagetag}.json"
+                
                 echo "Building docker Image for BUILD: ${BUILD_NUMBER}"
                 echo "${imagetag}"
-                echo "${taskDefile}"
-                sh ./build_docker_image
+                
+                
 
             }
         }

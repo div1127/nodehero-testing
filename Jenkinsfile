@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'docker info'
-                sh "apt-get update && agt-get install libltdl-dev -y"
+                sh "apt-get update && apt-get install libltdl-dev -y"
                 sh "docker -v"
                 
             }

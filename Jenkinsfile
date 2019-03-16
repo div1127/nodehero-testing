@@ -16,7 +16,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'docker -v'
+                echo 'docker info'
+                sh "docker -v"
                 
             }
         }

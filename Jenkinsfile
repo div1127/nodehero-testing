@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Docker Build & Push') {
             steps {
-                echo "Building docker Image for BUILD: ${BUILD_NUMBER}"
+                echo "Building idocker Image for BUILD: ${BUILD_NUMBER}"
                 echo "${imagetag}"
                 
                 

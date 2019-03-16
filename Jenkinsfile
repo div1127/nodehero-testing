@@ -14,9 +14,9 @@ pipeline {
                 sh 'npm run test'
             }
         }
-        stage('Codecoverage') {
+        stage('Deploy') {
             steps {
-                echo 'Codecoverage'
+                echo 'docker -v'
                 
             }
         }

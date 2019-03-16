@@ -1,6 +1,6 @@
 pipeline {
     agent {label "ecs-slaves"}
-
+    def imagetag="repo-${BUILD_NUMBER}"
     
 
     stages {
@@ -19,8 +19,6 @@ pipeline {
         }
         stage('Docker Build & Push') {
             steps {
-                def imagetag="nodejs-app-${BUILD_NUMBER}"
-                
                 echo "Building docker Image for BUILD: ${BUILD_NUMBER}"
                 echo "${imagetag}"
                 

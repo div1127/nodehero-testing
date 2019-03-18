@@ -2,7 +2,8 @@
 pipeline {
     agent {label "ecs-slaves"}
     environment {
-        def imagetag="repo"
+        def imagetag="nodejs-repo-${BUILD_NUMBER}"
+        def taskDefile="file://aws/task-definition-${imagetag}.json"
     }
 
     stages {
@@ -21,8 +22,8 @@ pipeline {
         }
         stage('Docker Build & Push') {
             steps {
-                echo "Building idocker Image for BUILD: ${BUILD_NUMBER}"
-                echo "${imagetag}"
+                echo "Building docker Image for BUILD: ${BUILD_NUMBER}"
+                sh "docker build -t ${imagetag} ."
                 
                 
 
